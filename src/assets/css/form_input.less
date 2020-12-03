@@ -1,0 +1,91 @@
+
+.form_box {
+    width: 350px;
+    margin: auto
+}
+
+    .form_box > h1 {
+        margin: 0px;
+        line-height: 50px !important;
+        font-size: 22px;
+        background-color: #283a84;
+        text-align: center;
+        font: bold 20px Myriad Pro;
+        text-transform: uppercase;
+        color: white;
+        font-weight: 100;
+        display: block;
+        border-radius: 4px;
+    }
+
+    .form_box .info_pass {
+        margin: 20px auto auto;
+    }
+
+    .form_box .reset {
+        text-decoration: none;
+        padding-left: 26px;
+        line-height: 34px;
+        background-repeat: no-repeat;
+        background-size: 16px;
+        background-position-x: 4px;
+        
+    }
+
+
+
+
+.form_input {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    margin: 20px auto;
+    padding-left: 14px;
+    border-bottom: 1px solid #2369A7;
+    height: 50px;
+}
+
+    .form_input .input_icon {
+        margin-top: 18px;
+        display: inline-block;
+    }
+
+    .form_input input {
+        width: calc(100% - 40px);
+        background: transparent;
+        border: none;
+        font: 14px helvetica, sans-serif;
+        outline: none;
+        letter-spacing: 1px;
+        margin-top: 18px;
+    }
+
+    .form_input .input_cover {
+        position: absolute;
+        bottom: 16px;
+        font-size: 14px;
+        left: 40px;
+        color: #8e8e8e;
+    }
+
+    .form_input.no-icon .input_cover {
+        left: 10px;
+    }
+
+    .form_input input:read-only + label.input_cover,
+    .form_input input:valid + label.input_cover,
+    .form_input input:focus + label.input_cover {
+        bottom: 40px;
+        transition: all 400ms;
+    }
+
+    .form_input.errorinput {
+        border-bottom: 1px solid red;
+    }
+
+select {
+    border: 0;
+    border-bottom: 1px solid rgb(220, 180, 180);
+    height: 26px;
+}

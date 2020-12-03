@@ -1,0 +1,64 @@
+.imagegrid {
+    display: block;
+}
+
+
+    .imagegrid .attachefilebox {
+        position: relative;
+        display: inline-block;
+        width: 260px;
+        height: 56px;
+        border: 1px solid rgb(50, 49, 48);
+        margin-right: 20px;
+        margin-bottom: 10px;
+    }
+
+        .imagegrid .attachefilebox .imagegrid_fileimg {
+            position: absolute;
+            top: 6px;
+            left: 8px;
+            height: 40px;
+        }
+
+        .imagegrid .attachefilebox .imagegrid_fileName {
+            top: 6px;
+            left: 50px;
+            position: absolute;
+            font-size: 14px;
+            overflow-x: hidden;
+            overflow-y: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            width: 200px;
+        }
+
+        .imagegrid .attachefilebox .imagegrid_fileSize {
+            top: 32px;
+            left: 50px;
+            font-size: 11px;
+            position: absolute;
+        }
+
+        .imagegrid .attachefilebox .imagegrid_filedelete {
+            top: 0;
+            right: 0;
+            background-color: #E9E9E9;
+            display: none;
+            position: absolute;
+        }
+
+        .imagegrid .attachefilebox .imagegrid_filedownload {
+            transition: all 1400ms;
+            top: 0;
+            right: 0;
+            width: 54px;
+            padding: 10px;
+            background-color: #E9E9E9;
+            display: none;
+            position: absolute;
+        }
+
+
+        .imagegrid .attachefilebox:hover .imagegrid_filedelete, .imagegrid .attachefilebox:hover .imagegrid_filedownload {
+            display: block;
+        }

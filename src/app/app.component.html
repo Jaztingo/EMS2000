@@ -1,0 +1,25 @@
+<div id="header">
+  <div class="header">
+    <img src="assets/img/logo.svg" class="logo-image">
+    <nav class="header_menu" *ngIf="!LoggedIn">
+      <a href="authorization" class="header_menu_item">ავტორიზაცია</a>
+    </nav>
+    <nav class="header_menu" *ngIf="LoggedIn">
+      <a href="clientbase" class="header_menu_item">
+        კლიენტების ბაზა
+      </a>
+      <div class="client_box">
+        <a class="clientname">
+          {{AgentName}}
+        </a>
+        <a class="logout" (click)="LogOut()">
+          <img src="assets/img/logout.svg">
+        </a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<div class="base_content">
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,26 @@
+<div>
+    <div class="form_box">
+        <h1>ავტორიზაცია</h1>
+        <div class="form_input login">
+            <label for="phone" class="input_icon">
+                <img src="assets/img/user.svg" alt="user_icon">
+            </label>
+            <input type="text" id="phone" pattern=".+" required="required" [(ngModel)]="userName" autocomplete="off">
+            <label for="phone" class="input_cover">
+                მომხმარებელი
+            </label>
+        </div>
+        <div class="form_input password">
+            <label for="pass" class="input_icon">
+                <img src="assets/img/lock.svg" alt="pass_icon">
+            </label>
+            <input type="password" name="pass" id="pass" required="required" pattern=".+" title="" [(ngModel)]="password" autocomplete="off">
+            <label for="pass" class="input_cover">
+                პაროლი
+            </label>
+        </div>
+        <a class="loginbtn btn yellow" (click)="login()">
+            შესვლა
+        </a>
+    </div>
+</div>

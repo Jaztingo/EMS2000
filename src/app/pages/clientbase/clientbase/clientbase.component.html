@@ -1,0 +1,209 @@
+<div class="gridview">
+    <!---->
+    <div class="gv_funq">
+        <input type="text" [(ngModel)]=NewNumberSearch>
+        <a class="ClientSearch blue" (click)="ClientSearch()">
+            ნომრის ძებნა
+        </a>
+    </div>
+    <div class="gv_funq"></div>
+    <div class="gv_head">
+        <div class="gv_row">
+            <div class="gv_cell ClientName">
+                კლიენტის სახელი
+            </div>
+            <div class="gv_cell Phone">
+                ტელეფონი
+            </div>
+            <div class="gv_cell OwenerAgent">
+                სეილი
+            </div>
+            <div class="gv_cell LastComment">
+                ბოლო კომენტარი
+            </div>
+            <div class="gv_cell LastCommentProduct">
+                პროდუქტი
+            </div>
+            <div class="gv_cell LastCommentStatus">
+                სტატუსი
+            </div>
+            <div class="gv_cell CRDate">
+                შექმნის თარიღი
+            </div>
+            <div class="gv_cell SearchClientCRDate">
+                განახლების თარიღი
+            </div>
+        </div>
+    </div>
+    <div class="gv_filter">
+        <div class="gv_row">
+            <div class="gv_cell ClientName">
+                <input type="text" placeholder="კლიენტის სახელი">
+            </div>
+            <div class="gv_cell Phone">
+                <input type="text" placeholder="ტელეფონი">
+            </div>
+            <div class="gv_cell OwenerAgent"><select>
+                    <option value="">ყველა</option>
+                    <option *ngFor="let Item of MyAndMyBoysList" [value]="Item.ID">{{Item.Description}}</option>
+                </select></div>
+            <div class="gv_cell LastComment"></div>
+            <div class="gv_cell LastCommentProduct"><select>
+                    <option value="">ყველა</option>
+                    <option *ngFor="let Item of ProductList" [value]="Item.ID">{{Item.Description}}</option>
+                </select></div>
+            <div class="gv_cell LastCommentStatus"><select>
+                    <option value="">ყველა</option>
+                    <option *ngFor="let Item of StatusList" [value]="Item.ID">{{Item.Description}}</option>
+                </select></div>
+            <div class="gv_cell CRDate">
+                <input type="text" readonly="readonly" placeholder="თარიღი">
+            </div>
+            <div class="gv_cell SearchClientCRDate">
+                <input type="text" readonly="readonly" placeholder="თარიღი">
+            </div>
+            <div class="gv_cell funq">
+                <a class="ClientSearch blue">
+                    <img src="assets/img/search.svg">
+                </a>
+                <a class="ClientSearch blue">
+                    <img src="assets/img/x.svg">
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="gv_body">
+        <div class="gv_row" *ngFor="let ClientItem of ClientList">
+            <div class="gv_cell ClientName">
+                {{ClientItem.clientName}}
+            </div>
+            <div class="gv_cell Phone">
+                {{ClientItem.phone}}
+            </div>
+            <div class="gv_cell OwenerAgent">
+                {{ClientItem.owenerAgent}}
+            </div>
+            <div class="gv_cell LastComment">
+                {{ClientItem.lastComment}}
+            </div>
+            <div class="gv_cell LastCommentProduct">
+                {{ClientItem.lastCommentProduct}}
+            </div>
+            <div class="gv_cell LastCommentStatus">
+                {{ClientItem.lastCommentStatus}}
+            </div>
+            <div class="gv_cell CRDate">
+                {{ClientItem.crDate}}
+            </div>
+            <div class="gv_cell ReminderDate">
+                {{ClientItem.reminderDate}}
+            </div>
+            <div class="gv_cell funq">
+
+                <a [href]="'clientdetail?ClientID=' + ClientItem.clientID">
+                    დეტალები
+                </a>
+            </div>
+        </div>
+
+    </div>
+    <div class="gv_pager">
+        <div class="total_row_count">
+            <span>
+                სულ რაოდენობა:
+            </span> <span>
+                223310
+            </span>
+        </div>
+
+        <a *ngFor="let Item of PagerList" [ngClass]="{'current': Item.PageNumber == Filter.PageNumber}"
+            (click)="PagerClick(Item)">
+            {{Item.PageNumber}}
+        </a>
+    </div>
+</div>
+
+<div class="popup_box" *ngIf="SearchedClientBoxVisible">
+    <div class="popup_content">
+        <div class="popup_header">
+            გაფილტრული კლიენტების სია
+        </div>
+        <div class="popup_data">
+            <div class="gridview">
+                <div class="gv_funq"><a class="blue disabled">
+                        ახალი კლიენტის შექმნა
+                    </a>
+                </div>
+                <div class="gv_head">
+                    <div class="gv_row">
+                        <div class="gv_cell SearchClientClientName">
+                            კლიენტის სახელი
+                        </div>
+                        <div class="gv_cell SearchClientPhone">
+                            ტელეფონი
+                        </div>
+                        <div class="gv_cell SearchClientOwenerAgent">
+                            სეილი
+                        </div>
+                        <div class="gv_cell SearchClientLastComment">
+                            ბოლო კომენტარი
+                        </div>
+                        <div class="gv_cell SearchClientLastCommentProduct">
+                            პროდუქტი
+                        </div>
+                        <div class="gv_cell SearchClientLastCommentStatus">
+                            სტატუსი
+                        </div>
+                        <div class="gv_cell SearchClientCRDate">
+                            შექმნის თარიღი
+                        </div>
+                        <div class="gv_cell SearchClientReminderDate">
+                            განახლების თარიღი
+                        </div>
+                    </div>
+                </div>
+                <div class="gv_body">
+                    <div class="gv_row" *ngFor="let ClientItem of SearchedClientList">
+                        <div class="gv_cell SearchClientClientName">
+                            {{ClientItem.clientName}}
+                        </div>
+                        <div class="gv_cell SearchClientPhone">
+                            {{ClientItem.phone}}
+                        </div>
+                        <div class="gv_cell SearchClientOwenerAgent">
+                            {{ClientItem.owenerAgent}}
+                        </div>
+                        <div class="gv_cell SearchClientLastComment">
+                            {{ClientItem.lastComment}}
+                        </div>
+                        <div class="gv_cell SearchClientLastCommentProduct">
+                            {{ClientItem.lastCommentProduct}}
+                        </div>
+                        <div class="gv_cell SearchClientLastCommentStatus">
+                            {{ClientItem.lastCommentStatus}}
+                        </div>
+                        <div class="gv_cell SearchClientCRDate">
+                            {{ClientItem.crDate}}
+                        </div>
+                        <div class="gv_cell SearchClientReminderDate">
+                            {{ClientItem.reminderDate}}
+                        </div>
+                        <div class="gv_cell funq">
+                            <a *ngIf="ClientItem.locked" class="disabled">
+                                დეტალები
+                            </a>
+                            <a *ngIf="!ClientItem.locked" [href]="'clientdetail?ClientID=' + ClientItem.clientID" >
+                                დეტალები
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="popup_buttonrow">
+            <a (click)="CloseClientSearchbox()">
+                გაუქმება
+            </a>
+        </div>
+    </div>
+</div>
